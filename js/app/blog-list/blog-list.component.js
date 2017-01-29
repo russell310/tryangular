@@ -1,7 +1,15 @@
 'use strict';
 
 angular.module('blogList').
-	controller('BlogListController',function($scope){
-		console.log("hello");
-		$scope.title = 'hi there'
+	component('blogList',{
+		templateUrl: 'templates/blog-list.html',
+		controller: function($scope){
+			$scope.title = 'hi there';
+			$scope.clicks = 0;
+			$scope.someClickTest = function(){
+				console.log('clicked');
+				$scope.clicks +=1;
+				$scope.title = 'Clicked '+$scope.clicks+ ' times';
+			}
+		}
 	});
